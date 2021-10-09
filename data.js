@@ -7,6 +7,7 @@ const cars = [
       "mpg": 32,
       "available": true,
       "hybrid": true,
+      "releaseDate": "2011-01-01T04:00:00.0004Z",
   },
   {
       "make": "Audi",
@@ -16,6 +17,7 @@ const cars = [
       "mpg": 28,
       "available": true,
       "hybrid": true,
+      "releaseDate": "2018-01-01T04:00:00.0004Z",
   },
   {
       "make": "BMW",
@@ -25,6 +27,7 @@ const cars = [
       "mpg": 24,
       "available": false,
       "hybrid": false,
+      "releaseDate": "2007-01-01T04:00:00.0004Z",
   },
   {
       "make": "Audi",
@@ -34,6 +37,7 @@ const cars = [
       "mpg": 22,
       "available": false,
       "hybrid": true,
+      "releaseDate": "2021-01-01T04:00:00.0004Z",
   },
   {
       "make": "Mercedes",
@@ -43,6 +47,7 @@ const cars = [
       "mpg": 18,
       "available": true,
       "hybrid": false,
+      "releaseDate": "2015-01-01T04:00:00.0004Z",
   }
 ]
 

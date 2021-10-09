@@ -15,6 +15,11 @@ const criterias = [
   { key: 'rating', strategy: 'increasing' },
   { key: 'mpg', strategy: 'increasing' },
   { key: 'available', strategy: 'increasing' },
+  {
+    key: 'releaseDate',
+    strategy: 'increasing',
+    transform: (record) => new Date(record.releaseDate).valueOf(),
+  },
 ]
 
 /**
@@ -27,4 +32,4 @@ const config = {
 
 let rankr = Rankr(cars, criterias, config)
 
-console.table(rankr.result())
+console.table(rankr.result().map(({ score, record }) => ({ score, record: record.model })))
