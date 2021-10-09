@@ -4,7 +4,6 @@ import RecordManager from './RecordManager/index.js'
 import ScoreManager from './ScoreManager/index.js'
 
 function Rankr(records, criterias, config) {
-  // Private
   const _criteriaManager = CriteriaManager(criterias)
   const _recordManager = RecordManager(records)
   const _configManager = ConfigManager(config)
@@ -12,7 +11,6 @@ function Rankr(records, criterias, config) {
 
   _criteriaManager.configureCriterias(_recordManager.records())
   
-  // Public
   const result = () => {
     const criterias = _criteriaManager.criterias()
     const records = _recordManager.records()

@@ -1,7 +1,6 @@
 import configure from './helpers/configureCriterias.js'
 
 function CriteriaManager(initialCriterias) {
-  // Private
   let _criterias = initialCriterias ?? []
 
   const _configureCriterias = (records) => {
@@ -9,7 +8,6 @@ function CriteriaManager(initialCriterias) {
     return _criterias
   }
 
-  // Public
   const criterias = () => {
     return _criterias
   }
