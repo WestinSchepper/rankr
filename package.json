@@ -1,0 +1,27 @@
+{
+  "name": "rankr",
+  "version": "1.0.0",
+  "description": "Rankr helps rank data sets based on multiple criterias.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon",
+    "test": "jest"
+  },
+  "keywords": [
+    "ranking",
+    "scoring",
+    "criteria",
+    "algorithm"
+  ],
+  "author": "Westin Schepper",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.2.4",
+    "nodemon": "^2.0.13",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "big.js": "^6.1.1"
+  }
+}
