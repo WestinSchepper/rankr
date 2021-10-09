@@ -4,8 +4,7 @@ function CriteriaManager(initialCriterias) {
   let _criterias = initialCriterias ?? []
 
   const _configureCriterias = (records) => {
-    _criterias = configure(records, _criterias)
-    return _criterias
+    configure(records, _criterias)
   }
 
   const criterias = () => {

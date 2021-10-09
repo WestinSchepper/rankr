@@ -1,34 +1,19 @@
-import isBoolean from '../../utils/isBoolean.js'
-import isNumber from '../../utils/isNumber.js'
-import isFunction from '../../utils/isFunction.js'
-
-import prepareNumber from './prepareNumber.js'
-import prepareBoolean from './prepareBoolean.js'
-import prepareFunction from './prepareFunction.js'
-import resolveWeight from './resolveWeight.js'
-import resolveMinMaxDistance from './resolveMinMaxDistance.js'
+import maybeSetWeight from './maybeSetWeight.js'
+import maybeSetMin from './maybeSetMin.js'
+import maybeSetMax from './maybeSetMax.js'
+import maybeSetDistance from './maybeSetDistance.js'
 
 function configureCriterias(records, criterias) {
   for (let criteria of criterias) {
-    const firstRecordCriteriaValue = records[0][criteria.key]
+    maybeSetWeight(criteria, criterias.length)
 
-    if (isNumber(firstRecordCriteriaValue)) {
-      prepareNumber(criteria, firstRecordCriteriaValue)
+    for (let record of records) {
+      maybeSetMin(criteria, record)
+      maybeSetMax(criteria, record)
     }
 
-    if (isBoolean(firstRecordCriteriaValue)) {
-      prepareBoolean(criteria)
-    }
-
-    if (isFunction(criteria.strategy)) {
-      prepareFunction(criteria)
-    }
-
-    resolveWeight(criterias, criteria)
-    resolveMinMaxDistance(records, criteria)
+    maybeSetDistance(criteria)
   }
-
-  return criterias
 }
 
 export default configureCriterias
