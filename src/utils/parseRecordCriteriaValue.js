@@ -2,7 +2,7 @@ import isBoolean from './isBoolean.js'
 import isFunction from './isFunction.js'
 import isNumber from './isNumber.js'
 
-function parseRecordCriteraValue(record, criteria) {
+function parseRecordCriteriaValue(record, criteria) {
   const { key, transform } = criteria
 
   if (isFunction(transform)) {
@@ -18,4 +18,4 @@ function parseRecordCriteraValue(record, criteria) {
   }
 }
 
-export default parseRecordCriteraValue
+export default parseRecordCriteriaValue

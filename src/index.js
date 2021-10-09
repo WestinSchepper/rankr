@@ -19,6 +19,10 @@ const criterias = [
     key: 'releaseDate',
     strategy: 'increasing',
     transform: (record) => new Date(record.releaseDate).valueOf(),
+    weight: 0.16666666666666666,
+    min: 1167624000000,
+    max: 1609473600000,
+    distance: 441849600000
   },
 ]
 
