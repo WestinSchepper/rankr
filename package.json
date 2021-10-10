@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Rankr helps rank data sets based on multiple criterias.",
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
   "scripts": {
     "start": "nodemon",
     "test": "jest",
