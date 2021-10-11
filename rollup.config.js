@@ -21,7 +21,7 @@ export default [
         extensions,
         babelHelpers: 'bundled',
       }),
-      uglify(),
+      // uglify(),
     ]
   }
 ]

@@ -3,11 +3,13 @@ import Rankr from './src/index.js'
 
 /**
  * Criteria:
- *   key: string
- *   strategy?: string<'increasing' | 'decreasing'> | function = 'increasing'
+ *   key?: string
+ *   strategy?: string<'increasing' | 'decreasing'> | function
  *   weight?: decimal = calculated
  *   min?: number = calculated
  *   max?: number = calculated
+ *   distance?: number = calculated
+ *   transform?: function
  */
 const criterias = [
   { strategy: (record, criteria) => record.make.length === 4 ? criteria.weight : 0 },

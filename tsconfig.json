@@ -4,5 +4,5 @@
       "declarationDir": "dist/types",
       "allowJs": true
   },
-  "exclude": ["dist", "node_modules", "*.js"]
+  "exclude": ["dist", "website", "node_modules", "*.js"]
 }
