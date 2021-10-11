@@ -6,9 +6,10 @@
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
-    "start": "nodemon",
+    "start": "nodemon --watch src/ --exec yarn build",
     "test": "jest",
-    "build": "rm -rf dist && rollup -c && tsc --emitDeclarationOnly"
+    "build": "rollup -c && tsc --emitDeclarationOnly",
+    "bundle": "rm -rf dist && yarn build"
   },
   "files": [
     "dist"
