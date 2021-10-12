@@ -60,15 +60,16 @@ Currently criterias have no default options.
 
 Default: `undefined`
 
-Use the `key` option to define the target property for this criteria. This should correspond to a property in the records you provide.
+Use the `key` option to define the target property for a criteria. The key should correspond to a property in the records you provide.
 
-Note: Currently this only supports properties at a depth of one. If you need to rank based on a multi-depth property, use the [`transform`](criteria#transform-function) option.
+:::info
+When using the `key` option, keep in mind: Rankr only has built-in support for `numbers` and `booleans`. If you need to rank anything else, take a look at the [`transform`](criteria#transform-function) option.
+:::
 
-| values   | description                                                         |
-| -------- | ------------------------------------------------------------------- |
-| `'desc'` | returns records in descending order (highest score to lowest score) |
-| `'asc'`  | returns records in ascending order (lowest score to highest score)  |
-| `null`   | returns records in the same order they were provided.               |
+:::info
+Currently the `key` option only supports properties at a depth of one. If you need to rank based on a multi-depth property, use the [`transform`](criteria#transform-function) option.
+:::
+
 
 ### `strategy` \[string | function]
 
@@ -89,12 +90,12 @@ Lets look at an example of a strategy function. In this scenario, we want to ran
 
 Persons 50 and older receive the whole rank, persons aged 25 to 49 receive half, and persons less than 25 receive nothing.
 
-```javascript
+```javascript {8-16}
 const people = [
-  { "name": "John", "age": 65 },
-  { "name": "Bill", "age": 44 },
-  { "name": "Jill", "age": 32 },
-  { "name": "Ron", "age": 2 }
+  { name: "John", age: 65 },
+  { name: "Bill", age: 44 },
+  { name: "Jill", age: 32 },
+  { name: "Ron", age: 2 }
 ]
 
 const rankByAgeGroup = (record, criteria) => {
@@ -117,56 +118,62 @@ const builtInCriterias = [
 
 rankr(people, customCriterias)
 // [
-//   { "score": 1, "record": { "name": "John", "age": 65 } },
-//   { "score": 0.5, "record": { "name": "Bill", "age": 44 } },
-//   { "score": 0.5, "record": { "name": "Jill", "age": 32 } },
-//   { "score": 0, "record": { "name": "Ron", "age": 2 } }
+//   { score: 1, record: { name: "John", age: 65 } },
+//   { score: 0.5, record: { name: "Bill", age: 44 } },
+//   { score: 0.5, record: { name: "Jill", age: 32 } },
+//   { score: 0, record: { name: "Ron", age: 2 } }
 // ]
 
 rankr(people, builtInCriterias)
 // [
-//   { "score": 1, "record": { "name": "John", "age": 65 } },
-//   { "score": 0.67, "record": { "name": "Bill", "age": 44 } },
-//   { "score": 0.48, "record": { "name": "Jill", "age": 32 } },
-//   { "score": 0, "record": { "name": "Ron", "age": 2 } }
+//   { score: 1, record: { name: "John", age: 65 } },
+//   { score: 0.67, record: { name: "Bill", age: 44 } },
+//   { score: 0.48, record: { name: "Jill", age: 32 } },
+//   { score: 0, record: { name: "Ron", age: 2 } }
 // ]
 ```
 
 As you can see, custom strategy functions are very flexible and expose the entire record and the entire criteria for your convenience.
 
+:::info
+Remember: custom strategy functions should return a number between 0 and the `criteria.weight` value for the best results.
+:::
+
 ### `min` \[number]
 
 Default: `undefined`
 
-This represents the minimum possible value the criteria will have. If this is not provided we will figure out this value for you.
+This represents the minimum possible value the criteria will have. If this is not provided Rankr will resolve it for you.
 
 ### `max` \[number]
 
 Default: `undefined`
 
-This represents the maximum possible value the criteria will have. If this is not provided we will figure out this value for you.
+This represents the maximum possible value the criteria will have. If this is not provided Rankr will resolve it for you.
 
 ### `distance` \[number]
 
 Default: `undefined`
 
-This represents the difference between `min` and `max` for the criteria. If this is not provided we will figure out this value for you.
+This represents the difference between `min` and `max` for the criteria. If this is not provided Rankr will resolve it for you.
 
 ### `weight` \[number]
 
 Default: `undefined`
 
-This represents the weight for the criteria. If this is not provided we will figure out this value for you.
+This represents the weight for the criteria. If this is not provided Rankr will resolve it for you.
 
-All of your weights should not exceed `1`, so if you are providing custom weights for all criterias ensure they sum to `1` or less.
+The sum of all of your weights should equal `1`.
 
-If you need to use a custom weight, you are not required to provide weights for all criterias. We will balance the rest of weights evenly. For example:
+If you need to use a custom weight, you are not required to provide weights for all criterias. We will balance the rest of weights evenly. If you provide three criterias and one is weighted with `0.5`, Rankr will resolve the other two to `0.25`. 
+
+For example:
 
 ```javascript
 const criterias = [
   { key: 'age', strategy: 'increasing', weight: 0.5 },
-  { key: 'height', strategy: 'increasing', }, // this will have a weight of `0.25`
-  { key: 'weight', strategy: 'increasing', }, // this will have a weight of `0.25`
+  { key: 'height', strategy: 'increasing' }, // Rankr resolves this to `0.25`
+  { key: 'weight', strategy: 'increasing' }, // Rankr resolves this to `0.25`
 ]
 ```
 
@@ -174,4 +181,42 @@ const criterias = [
 
 Default: `undefined`
 
-This represents the difference between `min` and `max` for the criteria. If this is not provided we will figure out this value for you.
+The `transform` option allows you to rank data types that are not supported by Rankr out of the box. The function provides you with the record, and you should return a number than can be used to automatically determine the `min`, `max`, `distance`, and also parse the value for ranking.
+
+| values             | description                                                          |
+|--------------------|----------------------------------------------------------------------|
+| fn(record): number | Use this to convert unsupported data types to a supported data type. |
+
+Lets take a look at an example. We have a list of movies and the times they're playing at the cinema. We want to go earlier in the day because the price of tickets increase at 12:00.
+
+We can use a transformer to convert the `showtime` property from a string date, to a number based date.
+
+```javascript {10-12}
+const movies = [
+  { name: 'Shrek 3D', price: 12, showtime: '2021-10-12T13:30:00.000Z' },
+  { name: 'Star Wars', price: 10, showtime: '2021-10-12T13:45:00.000Z' },
+  { name: 'Shrek 2D', price: 10, showtime: '2021-10-12T15:15:00.000Z' },
+  { name: 'Shrek 3D', price: 17, showtime: '2021-10-12T16:15:00.000Z' },
+  { name: 'Harry Potter', price: 15 , showtime: '2021-10-12T16:40:00.000Z' },
+  { name: 'Star Wars', price: 15, showtime: '2021-10-12T17:10:00.000Z' },
+]
+
+const dateTransformer = (record) => {
+  return new Date(record.showtime).valueOf()
+}
+
+const criterias = [
+  { key: 'price', strategy: 'decreasing' },
+  { key: 'showtime', strategy: 'decreasing', transform: dateTransformer },
+]
+
+rankr(movies, criterias)
+// [
+//   { score: 0.97, record: { name: "Star Wars", price: 10, showtime: "2021-10-12T13:45:00.000Z" } },
+//   { score: 0.86, record: { name: "Shrek 3D", price: 12, showtime: "2021-10-12T13:30:00.000Z" } },
+//   { score: 0.76, record: { name: "Shrek 2D", price: 10, showtime: "2021-10-12T15:15:00.000Z" } },
+//   { score: 0.21, record: { name: "Harry Potter", price: 15, showtime: "2021-10-12T16:40:00.000Z" } },
+//   { score: 0.14, record: { name: "Star Wars", price: 15, showtime: "2021-10-12T17:10:00.000Z" } },
+//   { score: 0.13, record: { name: "Shrek 3D", price: 17, showtime: "2021-10-12T16:15:00.000Z" } }
+// ]
+```
