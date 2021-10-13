@@ -55,7 +55,17 @@ const config = {
             docId: 'introduction/getting-started',
             position: 'right',
           },
-          {to: '/blog', label: 'Blog', position: 'right'},
+          {
+            label: 'API Reference',
+            type: 'doc',
+            docId: 'api-reference/config',
+            position: 'right',
+          },
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'right'
+          },
           {
             href: 'https://github.com/westinschepper/rankr',
             label: 'GitHub',
