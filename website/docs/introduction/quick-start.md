@@ -54,7 +54,7 @@ const criterias = [
   { key: 'safetyRating', strategy: 'increasing' },
 ]
 
-rankr(cars, criterias)
+Rankr(cars, criterias)
 // [
 //   { score: 0.9267399267399267, record: { make: "Audi", model: "S3", price: 50000, safetyRating: 9, mpg: 29 } ,
 //   { score: 0.6596736596736597, record: { make: "Audi", model: "Q8RS", price: 70000, safetyRating: 10, mpg: 22 } ,

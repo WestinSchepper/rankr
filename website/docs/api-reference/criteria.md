@@ -116,7 +116,7 @@ const builtInCriterias = [
   { key: 'age', strategy: 'increasing' }
 ]
 
-rankr(people, customCriterias)
+Rankr(people, customCriterias)
 // [
 //   { score: 1, record: { name: "John", age: 65 } },
 //   { score: 0.5, record: { name: "Bill", age: 44 } },
@@ -124,7 +124,7 @@ rankr(people, customCriterias)
 //   { score: 0, record: { name: "Ron", age: 2 } }
 // ]
 
-rankr(people, builtInCriterias)
+Rankr(people, builtInCriterias)
 // [
 //   { score: 1, record: { name: "John", age: 65 } },
 //   { score: 0.67, record: { name: "Bill", age: 44 } },
@@ -210,7 +210,7 @@ const criterias = [
   { key: 'showtime', strategy: 'decreasing', transform: dateTransformer },
 ]
 
-rankr(movies, criterias)
+Rankr(movies, criterias)
 // [
 //   { score: 0.97, record: { name: "Star Wars", price: 10, showtime: "2021-10-12T13:45:00.000Z" } },
 //   { score: 0.86, record: { name: "Shrek 3D", price: 12, showtime: "2021-10-12T13:30:00.000Z" } },
