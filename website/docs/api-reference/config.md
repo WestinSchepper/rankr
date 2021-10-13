@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Config
-The config object is completely optional and currently only provides properties for sorting and filtering.
+The config object is completely optional and currently only provides a property to control sorting.
 
 ## Options
 import TOCInline from "@theme/TOCInline"
