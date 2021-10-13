@@ -68,8 +68,9 @@ const config = {
           },
           {
             href: 'https://github.com/westinschepper/rankr',
-            label: 'GitHub',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
