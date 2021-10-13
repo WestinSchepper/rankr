@@ -183,9 +183,9 @@ Default: `undefined`
 
 The `transform` option allows you to rank data types that are not supported by Rankr out of the box. The function provides you with the record, and you should return a number than can be used to automatically determine the `min`, `max`, `distance`, and also parse the value for ranking.
 
-| values             | description                                                          |
-|--------------------|----------------------------------------------------------------------|
-| fn(record): number | Use this to convert unsupported data types to a supported data type. |
+| values               | description                                                          |
+|----------------------|----------------------------------------------------------------------|
+| `fn(record): number` | Use this to convert unsupported data types to a supported data type. |
 
 Lets take a look at an example. We have a list of movies and the times they're playing at the cinema. We want to go earlier in the day because the price of tickets increase at 12:00.
 
