@@ -143,18 +143,18 @@ const dateTransformer = (record) => {
 }
 
 const criterias = [
-  { key: 'price', strategy: 'decreasing', weight: 0.6 },
+  { key: 'price', strategy: 'decreasing', weight: 0.7 },
   { key: 'departure', strategy: 'decreasing', transform: dateTransformer },
 ]
 
 Rankr(flights, criterias)
 // [
-//   { score: 0.7992424242424242, record: { from: "LAX", to: "JFK", price: 250, departure: "2021-10-12T13:45:00.000Z" } },
-//   { score: 0.7613636363636364, record: { from: "LAX", to: "JFK", price: 210, departure: "2021-10-12T15:15:00.000Z" } },
-//   { score: 0.7291666666666666, record: { from: "LAX", to: "JFK", price: 275, departure: "2021-10-12T13:30:00.000Z" } },
-//   { score: 0.13636363636363635, record: { from: "LAX", to: "JFK", price: 330, departure: "2021-10-12T16:10:00.000Z" } },
-//   { score: 0.10984848484848485, record: { from: "LAX", to: "JFK", price: 320, departure: "2021-10-12T16:40:00.000Z" } },
-//   { score: 0.08333333333333333, record: { from: "LAX", to: "JFK", price: 310, departure: "2021-10-12T17:10:00.000Z" } }, 
+//   { score: 0.8568181818181818, record: { from: "LAX", to: "JFK", price: 210, departure: "2021-10-12T15:15:00.000Z" } },
+//   { score: 0.7462121212121212, record: { from: "LAX", to: "JFK", price: 250, departure: "2021-10-12T13:45:00.000Z" } },
+//   { score: 0.6208333333333333, record: { from: "LAX", to: "JFK", price: 275, departure: "2021-10-12T13:30:00.000Z" } },
+//   { score: 0.11666666666666667, record: { from: "LAX", to: "JFK", price: 310, departure: "2021-10-12T17:10:00.000Z" } },
+//   { score: 0.09924242424242424, record: { from: "LAX", to: "JFK", price: 320, departure: "2021-10-12T16:40:00.000Z" } },
+//   { score: 0.08181818181818182, record: { from: "LAX", to: "JFK", price: 330, departure: "2021-10-12T16:10:00.000Z" } },
 // ]
 ```
 
