@@ -50,6 +50,10 @@ const config = {
         },
         items: [
           {
+            type: 'docsVersionDropdown',
+            position: 'left',
+          },
+          {
             label: 'Docs',
             type: 'doc',
             docId: 'introduction/getting-started',
