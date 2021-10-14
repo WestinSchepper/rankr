@@ -197,7 +197,7 @@ const movies = [
   { name: 'Star Wars', price: 10, showtime: '2021-10-12T13:45:00.000Z' },
   { name: 'Shrek 2D', price: 10, showtime: '2021-10-12T15:15:00.000Z' },
   { name: 'Shrek 3D', price: 17, showtime: '2021-10-12T16:15:00.000Z' },
-  { name: 'Harry Potter', price: 15 , showtime: '2021-10-12T16:40:00.000Z' },
+  { name: 'Harry Potter', price: 15, showtime: '2021-10-12T16:40:00.000Z' },
   { name: 'Star Wars', price: 15, showtime: '2021-10-12T17:10:00.000Z' },
 ]
 
