@@ -1,7 +1,7 @@
 ---
 id: unsupported-types
 title: Unsupported Types
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Unsupported Types
