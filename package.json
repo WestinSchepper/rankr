@@ -35,6 +35,9 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "big.js": "^6.1.1"
+    "big.js": "^6.1.1",
+    "hast-util-is-element": "1.1.0",
+    "rehype-katex": "4",
+    "remark-math": "3"
   }
 }

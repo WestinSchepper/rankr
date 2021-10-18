@@ -1,10 +1,10 @@
 ---
-id: unsupported-types
-title: Unsupported Types
+id: supported-types
+title: Supported Types
 sidebar_position: 5
 ---
 
-# Unsupported Types
+# Supported Types
 Rankr is currently limited to supporting the following list of types out of the box.
 
 1. Numbers

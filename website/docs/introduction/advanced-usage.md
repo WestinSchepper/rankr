@@ -82,7 +82,7 @@ For more details about strategies, read the API Reference for criteria strategie
 ## Transformers
 Like the movie, *but cooler.*
 
-Transformers are used when you need to convert an [unsupported value type](/docs/introduction/unsupported-types) to be ranked.
+Transformers are used when you need to convert an unsupported value type to a [supported value type](/docs/introduction/supported-types) to be ranked.
 
 We're going to set the stage with a new scenario: You need to buy plane tickets for a funeral. You need to fly out as soon as possible, but you don't want to spend too much.
 
