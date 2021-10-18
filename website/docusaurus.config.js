@@ -31,11 +31,6 @@ const config = {
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -68,11 +63,6 @@ const config = {
             type: 'doc',
             docId: 'introduction/getting-started',
             position: 'right',
-          },
-          {
-            to: '/blog',
-            label: 'Blog',
-            position: 'right'
           },
           {
             href: 'https://github.com/westinschepper/rankr',
@@ -110,10 +100,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/westinschepper/rankr',
