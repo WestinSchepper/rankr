@@ -15,7 +15,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  organizationName: 'westinschepper', // Usually your GitHub 
+  organizationName: 'westinschepper', 
   projectName: 'rankr',
   presets: [
     [
