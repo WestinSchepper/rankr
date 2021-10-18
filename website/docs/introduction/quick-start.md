@@ -8,6 +8,12 @@ sidebar_position: 1
 
 Start using Rankr in just three easy steps.
 
+:::caution
+Please keep in mind this project is still in initial development as defined by [semver 2.0.0 spec item 4](https://semver.org/#spec-item-4):
+
+>Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The public API SHOULD NOT be considered stable.
+:::
+
 ## 1. Install
 
 **Using [`yarn`](https://yarnpkg.com/en/package/rankr):**
