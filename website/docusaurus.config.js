@@ -49,10 +49,6 @@ const config = {
     ({
       navbar: {
         title: 'Rankr',
-        logo: {
-          alt: 'Rankr Site Logo',
-          src: 'img/logo.svg',
-        },
         items: [
           {
             type: 'docsVersionDropdown',

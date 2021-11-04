@@ -4,7 +4,6 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import HomepageFeatures from '../components/HomepageFeatures';
 import CodeBlock from '@theme/CodeBlock';
 
 function HomepageHeader() {
@@ -71,9 +70,6 @@ export default function Home() {
       title={`${siteConfig.tagline}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
-      {/* <main>
-        <HomepageFeatures />
-      </main> */}
     </Layout>
   );
 }
