@@ -2,7 +2,8 @@
   "compilerOptions": {
       "declaration": true,
       "declarationDir": "dist/types",
-      "allowJs": true
+      "allowJs": true,
+      "esModuleInterop": true
   },
   "exclude": ["dist", "website", "node_modules", "*.js"]
 }
