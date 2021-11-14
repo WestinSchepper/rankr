@@ -1,8 +1,9 @@
-import isBoolean from './isBoolean.js'
-import isFunction from './isFunction.js'
-import isNumber from './isNumber.js'
+import isBoolean from './isBoolean'
+import isFunction from './isFunction'
+import isNumber from './isNumber'
+import { Record, Criteria } from '../types'
 
-function parseRecordCriteriaValue(record, criteria) {
+function parseRecordCriteriaValue(record: Record, criteria: Criteria): number {
   const { key, transform } = criteria
 
   if (isFunction(transform)) {
