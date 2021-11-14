@@ -1,11 +1,9 @@
 import isBoolean from "./isBoolean"
 
 describe("isBoolean", () => {
-  it("returns true when the value is an primitive boolean", () => {
+  it("returns true when the value is a boolean", () => {
     expect(isBoolean(true)).toBe(true)
-  })
-
-  it("returns true when the value is n object based boolean", () => {
+    expect(isBoolean(Boolean(false))).toBe(true)
     expect(isBoolean(new Boolean(false))).toBe(true)
   })
 })
