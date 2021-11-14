@@ -2,6 +2,15 @@
   "name": "rankr",
   "version": "0.1.0",
   "description": "Rankr helps you score data sets based on multiple criterias.",
+  "private": false,
+  "homepage": "https://github.com/WestinSchepper/rankr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WestinSchepper/rankr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WestinSchepper/rankr/issues"
+  },
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
@@ -21,7 +30,7 @@
     "algorithm"
   ],
   "author": "Westin Schepper",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
