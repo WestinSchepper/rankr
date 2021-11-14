@@ -1,7 +1,7 @@
 {
   "name": "rankr",
-  "version": "1.0.0",
-  "description": "Rankr helps rank data sets based on multiple criterias.",
+  "version": "0.1.0",
+  "description": "Rankr helps you score data sets based on multiple criterias.",
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
