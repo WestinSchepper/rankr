@@ -24,7 +24,7 @@ describe("ScoreManager", () => {
 
   const config = { sort: 'asc' }
 
-  it("returns the correct scores sorted in the order defined in config", () => {
+  it("returns the correctly scored and sorted records when calling scores()", () => {
     const expectation = [
       { score: 0, record: { age: 50 } },
       { score: 0.5, record: { age: 35 } },
