@@ -2,8 +2,7 @@
 
 Rankr is a simple multi-criteria decision analysis (MCDA) library written in JavaScript.
 
-![npm version](https://img.shields.io/npm/v/rankr)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/westinschepper/rankr/Tests)
+![npm](https://img.shields.io/npm/v/rankr)
 ![license](https://img.shields.io/github/license/westinschepper/rankr)
 
 &#x26A0; Warning
