@@ -5,7 +5,7 @@ interface ConfigManager {
   config: () => Config
 }
 
-function ConfigManager(initialConfig: Config): ConfigManager {
+function ConfigManager(initialConfig?: Config): ConfigManager {
   let _config: Config = { ...defaultConfig, ...(initialConfig ?? {}) }
   
   const config = (): Config => {
