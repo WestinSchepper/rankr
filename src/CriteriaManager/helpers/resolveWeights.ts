@@ -1,7 +1,8 @@
 import Big from 'big.js'
+import { Criteria } from '../../types'
 
-function resolveWeights(criterias) {
-  const unresolvedCriterias = []
+function resolveWeights(criterias: Criteria[]): void {
+  const unresolvedCriterias: Criteria[] = []
   let remainder = Big(1)
 
   for (let criteria of criterias) {
