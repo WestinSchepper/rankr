@@ -1,9 +1,10 @@
-import ConfigManager from './ConfigManager/index.js'
-import CriteriaManager from './CriteriaManager/index.js'
-import RecordManager from './RecordManager/index.js'
-import ScoreManager from './ScoreManager/index.js'
+import ConfigManager from './ConfigManager'
+import CriteriaManager from './CriteriaManager'
+import RecordManager from './RecordManager'
+import ScoreManager from './ScoreManager'
+import { Config, Criteria, Record } from './types'
 
-function Rankr(records, criterias, config) {
+function Rankr(records: Record[], criterias: Criteria[], config?: Config) {
   const _criteriaManager = CriteriaManager(criterias)
   const _recordManager = RecordManager(records)
   const _configManager = ConfigManager(config)
