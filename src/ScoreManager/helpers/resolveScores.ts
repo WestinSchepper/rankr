@@ -1,12 +1,13 @@
 import Big from 'big.js'
-import isFunction from '../../utils/isFunction.js'
-import parseRecordCriteriaValue from '../../utils/parseRecordCriteriaValue.js'
-import scoreIncreasing from './scoreIncreasing.js'
-import scoreDecreasing from './scoreDecreasing.js'
-import scoreFunction from './scoreFunction.js'
+import isFunction from '../../utils/isFunction'
+import parseRecordCriteriaValue from '../../utils/parseRecordCriteriaValue'
+import scoreIncreasing from './scoreIncreasing'
+import scoreDecreasing from './scoreDecreasing'
+import scoreFunction from './scoreFunction'
+import { Criteria, Record, Score } from '../../types'
 
-function resolveScores(criterias, records) {
-  const result = records.map((record) => {
+function resolveScores(criterias: Criteria[], records: Record[]): Score[] {
+  const result: Score[] = records.map((record) => {
     let score = Big(0)
 
     for (let criteria of criterias) {
