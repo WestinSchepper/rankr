@@ -1,11 +1,10 @@
-import Big from 'big.js'
 import { Criteria } from '../../types'
 
 function scoreIncreasing(criteria: Criteria, recordValue: number): number {
   const { min, distance, weight } = criteria
-  const criteriaScore = Big(recordValue).minus(min).div(distance).times(weight)
+  const criteriaScore = recordValue - ((min / distance) * weight)
 
-  return criteriaScore.toNumber()
+  return criteriaScore
 }
 
 export default scoreIncreasing
