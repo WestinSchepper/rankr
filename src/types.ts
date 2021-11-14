@@ -1,4 +1,6 @@
-export type Record = object
+export interface Record {
+  [key: string]: any
+}
 
 export type Transformer = (record: Record) => number
 
@@ -25,7 +27,7 @@ export interface Criteria {
 }
 
 export interface Config {
-  sort?: Sort | null
+  sort?: Sort | string | null
 }
 
 export interface Score {
