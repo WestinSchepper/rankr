@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Rankr helps you score data sets based on multiple criterias.",
   "private": false,
-  "homepage": "https://github.com/WestinSchepper/rankr",
+  "homepage": "https://westinschepper.com/rankr",
   "repository": {
     "type": "git",
     "url": "https://github.com/WestinSchepper/rankr.git"
