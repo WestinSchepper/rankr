@@ -8,7 +8,7 @@
     "start": "nodemon --watch src/ --exec yarn build:dev",
     "test": "jest",
     "build:dev": "rollup -c rollup.config.dev.js && tsc --emitDeclarationOnly",
-    "build": "rollup -c rollup.config.build.js && tsc --emitDeclarationOnly",
+    "build": "yarn test --coverage && rollup -c rollup.config.build.js && tsc --emitDeclarationOnly",
     "bundle": "rm -rf dist && yarn build"
   },
   "files": [
@@ -28,6 +28,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@types/jest": "^27.0.2",
     "jest": "^27.2.4",
     "nodemon": "^2.0.13",
@@ -36,6 +37,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-visualizer": "^5.5.2",
     "ts-jest": "^27.0.7",
+    "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
   "dependencies": {}

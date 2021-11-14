@@ -5,5 +5,6 @@
       "allowJs": true,
       "esModuleInterop": true
   },
-  "exclude": ["dist", "website", "node_modules", "*.js"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

@@ -3,6 +3,7 @@ import babel from '@rollup/plugin-babel'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { uglify } from 'rollup-plugin-uglify'
 import summary from 'rollup-plugin-summary'
+import typescript from '@rollup/plugin-typescript'
 
 const extensions = ['.js', '.ts']
 
@@ -24,6 +25,7 @@ export default [
         extensions,
         babelHelpers: 'bundled',
       }),
+      typescript(),
       uglify(),
       visualizer({ template: 'treemap', filename: '.stats/treemap.html', sourcemap: true }),
       visualizer({ template: 'sunburst', filename: '.stats/sunburst.html', sourcemap: true }),
