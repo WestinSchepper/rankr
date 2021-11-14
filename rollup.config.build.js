@@ -1,6 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { uglify } from 'rollup-plugin-uglify'
+import summary from 'rollup-plugin-summary'
 
 const extensions = ['.js', '.ts']
 
@@ -10,6 +12,7 @@ export default [
     output: {
       file: 'dist/index.js',
       format: 'umd',
+      sourcemap: true,
       name: 'Rankr'
     },
     plugins: [
@@ -21,7 +24,10 @@ export default [
         extensions,
         babelHelpers: 'bundled',
       }),
-      // uglify(),
+      uglify(),
+      visualizer({ template: 'treemap', filename: '.stats/treemap.html', sourcemap: true }),
+      visualizer({ template: 'sunburst', filename: '.stats/sunburst.html', sourcemap: true }),
+      summary(),
     ]
   }
 ]
