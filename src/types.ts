@@ -2,6 +2,8 @@ export type Record = object
 
 export type Transformer = (record: Record) => number
 
+export type CustomStrategy = (record: Record, criteria: Criteria) => number
+
 export enum Sort {
   asc = 'asc',
   desc = 'desc',
@@ -14,7 +16,7 @@ export enum Strategy {
 
 export interface Criteria {
   key?: string
-  strategy?: Strategy
+  strategy?: string | CustomStrategy
   weight?: number
   min?: number
   max?: number
@@ -24,4 +26,9 @@ export interface Criteria {
 
 export interface Config {
   sort?: Sort | null
+}
+
+export interface Score {
+  score: number
+  record: Record
 }
