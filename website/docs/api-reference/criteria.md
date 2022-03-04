@@ -17,7 +17,7 @@ import TOCInline from "@theme/TOCInline"
 const criteria = {
   // key: string
   // [optional] if you provide a strategy function
-  // this acts as the criteria name and the property used to rank your records.
+  // this acts as the criteria name and the property used to rank your records. Can be a path for nested attributes.
   key: 'price',
 
   // strategy: 'increasing' | 'decreasing' | function(record, criteria) => criteriaRank
@@ -60,14 +60,17 @@ Currently criterias have no default options.
 
 Default: `undefined`
 
-Use the `key` option to define the target property for a criteria. The key should correspond to a property in the records you provide.
+Use the `key` option to define the target property for a criteria. The key should correspond to a property in the records you provide. You can also pass in an object path for nested attributes.
+
+```javascript
+// String path for nested attributes
+const criteria = {
+  key: 'path.to.object[5].value'
+}
+```
 
 :::info
 When using the `key` option, keep in mind: Rankr only has built-in support for `numbers` and `booleans`. If you need to rank anything else, take a look at the [`transform`](criteria#transform-function) option.
-:::
-
-:::info
-Currently the `key` option only supports properties at a depth of one. If you need to rank based on a multi-depth property, use the [`transform`](criteria#transform-function) option.
 :::
 
 

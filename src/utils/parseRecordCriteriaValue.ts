@@ -1,6 +1,7 @@
 import isBoolean from './isBoolean'
 import isFunction from './isFunction'
 import isNumber from './isNumber'
+import get from 'lodash.get'
 import { Record, Criteria } from '../types'
 
 function parseRecordCriteriaValue(record: Record, criteria: Criteria): number {
@@ -10,12 +11,12 @@ function parseRecordCriteriaValue(record: Record, criteria: Criteria): number {
     return transform(record)
   }
 
-  if (isNumber(record[key])) {
-    return record[key]
+  if (isNumber(get(record, key))) {
+    return get(record, key)
   }
 
-  if (isBoolean(record[key])) {
-    return record[key] === true ? 1 : 0
+  if (isBoolean(get(record, key))) {
+    return get(record, key) === true ? 1 : 0
   }
 }
 

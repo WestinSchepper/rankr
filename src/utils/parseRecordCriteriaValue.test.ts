@@ -3,7 +3,11 @@ import parseRecordCriteriaValue from "./parseRecordCriteriaValue"
 describe("parseRecordCriteriaValue", () => {
   const record = {
     age: 10,
-    isChild: true
+    isChild: true,
+    hand: {
+      left: [{ fingers: 5 }],
+      right: [{ fingers: 5 }],
+    }
   }
 
   it("returns a number representation when transform is a function", () => {
@@ -23,5 +27,12 @@ describe("parseRecordCriteriaValue", () => {
     const result = parseRecordCriteriaValue(record, criteria)
 
     expect(result).toBe(1)
+  })
+
+  it('returns the nested value when provided an object path', () => {
+    const criteria = { key: 'hand.left[0].fingers' }
+    const result = parseRecordCriteriaValue(record, criteria)
+
+    expect(result).toBe(5)
   })
 })

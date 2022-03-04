@@ -12,7 +12,7 @@ export declare enum Strategy {
     decreasing = "decreasing"
 }
 export interface Criteria {
-    key?: string;
+    key?: string | [string];
     strategy?: string | CustomStrategy;
     weight?: number;
     min?: number;
