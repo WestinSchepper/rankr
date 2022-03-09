@@ -1,3 +1,4 @@
-import { Config, Criteria, Record } from './types';
-declare function Rankr(records: Record[], criterias: Criteria[], config?: Config): import("./types").Score[];
-export default Rankr;
+export { default as booleanTransformer } from './transformers/booleanTransformer';
+export { default as numberTransformer } from './transformers/numberTransformer';
+export { default as dateTransformer } from './transformers/dateTransformer';
+export { default } from './Rankr';

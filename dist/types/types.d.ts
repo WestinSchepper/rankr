@@ -1,7 +1,7 @@
 export interface Record {
     [key: string]: any;
 }
-export declare type Transformer = (record: Record) => number;
+export declare type Transformer = (record: Record, criteria?: Criteria) => number;
 export declare type CustomStrategy = (record: Record, criteria: Criteria) => number;
 export declare enum Sort {
     asc = "asc",
