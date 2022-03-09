@@ -1,4 +1,4 @@
-export { default as booleanTransformer } from 'booleanTransformer'
-export { default as numberTransformer } from 'numberTransformer'
-export { default as dateTransformer } from 'dateransformer'
+export { default as booleanTransformer } from './transformers/booleanTransformer'
+export { default as numberTransformer } from './transformers/numberTransformer'
+export { default as dateTransformer } from './transformers/dateTransformer'
 export { default } from './Rankr'
