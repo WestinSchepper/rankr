@@ -1,22 +1,24 @@
-import isBoolean from './isBoolean'
+import booleanTransformer from '../transformers/booleanTransformer'
+import numberTransformer from '../transformers/numberTransformer'
+import { Record, Criteria } from '../types'
 import isFunction from './isFunction'
+import isBoolean from './isBoolean'
 import isNumber from './isNumber'
 import get from 'lodash.get'
-import { Record, Criteria } from '../types'
 
 function parseRecordCriteriaValue(record: Record, criteria: Criteria): number {
-  const { key, transform } = criteria
-
-  if (isFunction(transform)) {
-    return transform(record)
+  if (isFunction(criteria.transform)) {
+    return criteria.transform(record, criteria)
   }
 
-  if (isNumber(get(record, key))) {
-    return get(record, key)
+  const recordValue = get(record, criteria.key)
+
+  if (isNumber(recordValue)) {
+    return numberTransformer(record, criteria)
   }
 
-  if (isBoolean(get(record, key))) {
-    return get(record, key) === true ? 1 : 0
+  if (isBoolean(recordValue)) {
+    return booleanTransformer(record, criteria)
   }
 }
 

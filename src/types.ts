@@ -2,7 +2,7 @@ export interface Record {
   [key: string]: any
 }
 
-export type Transformer = (record: Record) => number
+export type Transformer = (record: Record, criteria?: Criteria) => number
 
 export type CustomStrategy = (record: Record, criteria: Criteria) => number
 
