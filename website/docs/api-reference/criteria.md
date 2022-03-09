@@ -45,10 +45,10 @@ const criteria = {
   // Must be between 0 and 1. If not provided, all criterias will be weighted evenly.
   weight: 0.35,
 
-  // transform: function(record) => number
+  // transform: function(record, criteria) => number
   // [optional]
   // When ranking an unsupported data type, use this to convert it to a number.
-  transform: (record) => new Date(record.date).valueOf()
+  transform: (record, criteria) => new Date(record[criteria.key]).valueOf()
 }
 ```
 
@@ -184,11 +184,13 @@ const criterias = [
 
 Default: `undefined`
 
-The `transform` option allows you to rank data types that are not supported by Rankr out of the box. The function provides you with the record, and you should return a number than can be used to automatically determine the `min`, `max`, `distance`, and also parse the value for ranking.
+The `transform` option allows you to rank data types that are not supported by Rankr out of the box. The function provides you with the record and the criteria and must return a number.
 
-| values               | description                                                          |
-|----------------------|----------------------------------------------------------------------|
-| `fn(record): number` | Use this to convert unsupported data types to a supported data type. |
+There are also some built-in transformers we expose to you for convenience. Find out more in the [Built-in Transformers](/docs/api-reference/built-in-transformers) section of the documentation.
+
+| values                         | description                                                          |
+|--------------------------------|----------------------------------------------------------------------|
+| `fn(record, criteria): number` | Use this to convert unsupported data types to a supported data type. |
 
 Lets take a look at an example. We have a list of movies and the times they're playing at the cinema. We want to go earlier in the day because the price of tickets increase at 12:00.
 
@@ -204,8 +206,8 @@ const movies = [
   { name: 'Star Wars', price: 15, showtime: '2021-10-12T17:10:00.000Z' },
 ]
 
-const dateTransformer = (record) => {
-  return new Date(record.showtime).valueOf()
+const dateTransformer = (record, criteria) => {
+  return new Date(record[criteria.key]).valueOf()
 }
 
 const criterias = [
